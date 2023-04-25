@@ -1,0 +1,105 @@
+.root {
+  max-width: 100%;
+}
+
+.media {
+  height: 300px;
+  padding-top: 56.25%;
+}
+
+.cardActions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cardContent {
+  display: flex;
+  justify-content: space-between;
+}
+
+.appBar {
+  box-shadow: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.title {
+  flex-grow: 1;
+  align-items: center;
+  display: flex;
+  text-decoration: none;
+}
+
+.image {
+  margin-right: 10px;
+}
+
+.menuButton {
+  margin-right: 20px;
+}
+.grow {
+  flex-grow: 1;
+}
+
+.search {
+  position: relative;
+  border-radius: 10px;
+  background-color: #fff;
+  margin-right: 20px;
+  margin-left: 0;
+  width: 100%;
+  /* [theme.breakpoints.up('sm')]: {
+      width: 'auto',
+    }, */
+}
+.searchIcon {
+  padding: 0 20px;
+  height: 100%;
+  position: absolute;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.inputRoot {
+  color: inherit;
+}
+
+.inputInput {
+  padding: 8px 8px 8px 0;
+}
+
+.toolbar {
+}
+
+.title {
+  margin-top: 100px;
+}
+.link {
+  text-decoration: none;
+}
+.cardDetails {
+  display: flex;
+  margin-top: 150px;
+  width: 100%;
+  justify-content: space-between;
+}
+.checkoutButton {
+  min-width: 150px;
+}
+.emptyButton {
+  min-width: 150px;
+}
+.media {
+  height: 260;
+}
+.cardContent {
+  display: flex;
+  justify-content: space-between;
+}
+.cartActions {
+  justify-content: "space-between";
+}
+.buttons {
+  display: flex;
+  align-items: center;
+}
