@@ -6,11 +6,6 @@ import css from "./Pagination.module.css";
 import { useRef, useState } from "react";
 import Slideshow from "./Slide";
 
-const p = [
-  { id: 1, name: "qwe", desc: "qweqweqwe", price: "$10" },
-  { id: 2, name: "qwasde", desc: "asdqweqweqwe", price: "$10" },
-];
-
 const Products = ({ products, handleAddToCart }) => {
   console.log(products);
   const elementToScroll = useRef(null);
@@ -33,11 +28,10 @@ const Products = ({ products, handleAddToCart }) => {
     });
   };
 
-
   return (
     <main className="container">
       <div className="hero">
-      <Slideshow />
+        <Slideshow />
       </div>
       <div>
         <Grid
@@ -96,4 +90,3 @@ const Products = ({ products, handleAddToCart }) => {
 };
 
 export default Products;
-

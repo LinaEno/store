@@ -9,7 +9,6 @@ import Checkout from "./components/Checkout/Checkout";
 import PageNotFound404 from "./components/Error404/Error404";
 
 const App = () => {
-  const [mobileOpen, setMobileOpen] = useState(false);
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState({});
   const [order, setOrder] = useState({});
@@ -71,9 +70,6 @@ const App = () => {
     fetchCart();
   }, []);
 
-  const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
-
-  console.log(cart);
 
   return (
     <>
