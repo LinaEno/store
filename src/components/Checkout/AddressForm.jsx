@@ -73,11 +73,23 @@ const AddressForm = ({ checkoutToken, test }) => {
 
   return (
     <>
-      <Typography variant="h6" gutterBottom>
+      <Typography
+        variant="h6"
+        gutterBottom
+        style={{
+          textAlign: "center",
+          marginLeft: "12px",
+          marginBottom: "20px",
+          marginTop: "10px",
+          color: "#424242",
+          fontSize: "1rem",
+        }}
+      >
         Shipping address
       </Typography>
       <FormProvider {...methods}>
         <form
+          style={{ padding: "10px " }}
           onSubmit={methods.handleSubmit((data) =>
             test({
               ...data,
@@ -87,103 +99,132 @@ const AddressForm = ({ checkoutToken, test }) => {
             })
           )}
         >
-          <Grid container spacing={3}>
+          <Grid container spacing={3} className="address__form">
             <input
               required
               name="firstName"
               label="First name"
               placeholder="First name"
-              style={{ marginTop: "30px" }}
+              className="address__input"
             />
             <input
               required
               name="lastName"
               label="Last name"
               placeholder="Last name"
-              style={{ marginTop: "30px" }}
+              className="address__input"
             />
             <input
               required
               name="address1"
               label="Address line 1"
               placeholder="Address line 1"
-              style={{ marginTop: "30px" }}
+              className="address__input"
             />
             <input
               required
               name="email"
               label="Email"
               placeholder="Email"
-              style={{ marginTop: "30px" }}
+              className="address__input"
             />
             <input
               required
               name="city"
               label="City"
               placeholder="City"
-              style={{ marginTop: "30px" }}
+              className="address__input"
             />
             <input
               required
               name="zip"
               label="Zip / Postal code"
               placeholder="Postal code"
-              style={{ marginTop: "30px" }}
+              className="address__input"
             />
-            <Grid item xs={12} sm={6}>
-              <InputLabel>Shipping Country</InputLabel>
-              <Select
-                value={shippingCountry}
-                fullWidth
-                onChange={(e) => setShippingCountry(e.target.value)}
-              >
-                {Object.entries(shippingCountries)
-                  .map(([code, name]) => ({ id: code, label: name }))
-                  .map((item) => (
-                    <MenuItem key={item.id} value={item.id}>
-                      {item.label}
-                    </MenuItem>
-                  ))}
-              </Select>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <InputLabel>Shipping Subdivision</InputLabel>
-              <Select
-                value={shippingSubdivision}
-                fullWidth
-                onChange={(e) => setShippingSubdivision(e.target.value)}
-              >
-                {Object.entries(shippingSubdivisions)
-                  .map(([code, name]) => ({ id: code, label: name }))
-                  .map((item) => (
-                    <MenuItem key={item.id} value={item.id}>
-                      {item.label}
-                    </MenuItem>
-                  ))}
-              </Select>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <InputLabel>Shipping Options</InputLabel>
-              <Select
-                value={shippingOption}
-                fullWidth
-                onChange={(e) => setShippingOption(e.target.value)}
-              >
-                {shippingOptions
-                  .map((sO) => ({
-                    id: sO.id,
-                    label: `${sO.description} - (${sO.price.formatted_with_symbol})`,
-                  }))
-                  .map((item) => (
-                    <MenuItem key={item.id} value={item.id}>
-                      {item.label}
-                    </MenuItem>
-                  ))}
-              </Select>
-            </Grid>
+            <div className="grid__box">
+              <Grid item xs={12} sm={6} className="address__grid">
+                <InputLabel
+                  style={{
+                    marginBottom: "2px",
+                    color: "#424242",
+                    fontSize: "1rem",
+                  }}
+                >
+                  Shipping Country
+                </InputLabel>
+                <Select
+                  value={shippingCountry}
+                  fullWidth
+                  onChange={(e) => setShippingCountry(e.target.value)}
+                  className="address__select"
+                >
+                  {Object.entries(shippingCountries)
+                    .map(([code, name]) => ({ id: code, label: name }))
+                    .map((item) => (
+                      <MenuItem key={item.id} value={item.id}>
+                        {item.label}
+                      </MenuItem>
+                    ))}
+                </Select>
+              </Grid>
+              <Grid item xs={12} sm={6} className="address__grid">
+                <InputLabel
+                  style={{
+                    marginBottom: "2px",
+                    color: "#424242",
+                    fontSize: "1rem",
+                  }}
+                >
+                  Shipping Subdivision
+                </InputLabel>
+                <Select
+                  value={shippingSubdivision}
+                  fullWidth
+                  onChange={(e) => setShippingSubdivision(e.target.value)}
+                  className="address__select"
+                >
+                  {Object.entries(shippingSubdivisions)
+                    .map(([code, name]) => ({ id: code, label: name }))
+                    .map((item) => (
+                      <MenuItem key={item.id} value={item.id}>
+                        {item.label}
+                      </MenuItem>
+                    ))}
+                </Select>
+              </Grid>
+              <Grid item xs={12} sm={6} className="address__grid">
+                <InputLabel
+                  style={{
+                    marginBottom: "2px",
+                    color: "#424242",
+                    fontSize: "1rem",
+                  }}
+                >
+                  Shipping Options
+                </InputLabel>
+                <Select
+                  value={shippingOption}
+                  fullWidth
+                  onChange={(e) => setShippingOption(e.target.value)}
+                  className="address__select"
+                >
+                  {shippingOptions
+                    .map((sO) => ({
+                      id: sO.id,
+                      label: `${sO.description} - (${sO.price.formatted_with_symbol})`,
+                    }))
+                    .map((item) => (
+                      <MenuItem key={item.id} value={item.id}>
+                        {item.label}
+                      </MenuItem>
+                    ))}
+                </Select>
+              </Grid>
+            </div>
           </Grid>
           <br />
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <div style={{ display: "flex", justifyContent: "space-around" }}>
             <Button component={Link} variant="outlined" to="/cart">
               Back to Cart
             </Button>

@@ -2,8 +2,16 @@ import React from "react";
 import { Typography, List, ListItem, ListItemText } from "@mui/material";
 
 const Review = ({ checkoutToken }) => (
-  <>
-    <Typography variant="h6" gutterBottom>
+  <div style={{ padding: "20px" }}>
+    <Typography
+      variant="h6"
+      gutterBottom
+      style={{
+        marginLeft: "20px",
+        color: "#424242",
+        fontSize: "1.5rem",
+      }}
+    >
       Order summary
     </Typography>
     <List disablePadding>
@@ -25,7 +33,7 @@ const Review = ({ checkoutToken }) => (
         </Typography>
       </ListItem>
     </List>
-  </>
+  </div>
 );
 
 export default Review;

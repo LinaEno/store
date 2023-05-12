@@ -6,8 +6,8 @@ import {
   Typography,
   IconButton,
 } from "@mui/material";
+import {ReactComponent as ReactCart} from '../../../image/add.svg';
 
-import { AddShoppingCart } from "@mui/icons-material";
 
 const Product = ({ product, handleAddToCart }) => {
   const onAddToCart = () => handleAddToCart(product.id, 1);
@@ -37,7 +37,7 @@ const Product = ({ product, handleAddToCart }) => {
       </CardContent>
       <CardActions disableSpacing className={"cardActions"}>
         <IconButton aria-label="Add to Cart" onClick={onAddToCart}>
-          <AddShoppingCart />
+        <ReactCart height={25} width={25}/>
         </IconButton>
       </CardActions>
     </Card>
@@ -45,3 +45,5 @@ const Product = ({ product, handleAddToCart }) => {
 };
 
 export default Product;
+
+

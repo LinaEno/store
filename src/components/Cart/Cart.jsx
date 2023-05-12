@@ -3,18 +3,32 @@ import { Container, Typography, Button, Grid } from "@mui/material";
 import { Link } from "react-router-dom";
 
 import CartItem from "./CartItem/CartItem";
+import shoe1 from "../../image/shoe1.png";
+import shoe2 from "../../image/shoe2.png";
+import { ReactComponent as ReactCircle } from "../../image/circle.svg";
 
 const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
   const handleEmptyCart = () => onEmptyCart();
 
   const renderEmptyCart = () => (
-    <Typography variant="subtitle1">
-      You have no items in your shopping cart,
-      <Link className={"link"} to="/">
-        start adding some
-      </Link>
-      !
-    </Typography>
+    <>
+      <Typography variant="subtitle1" 
+      style={{textAlign: 'center', marginTop: "10px", marginBottom: "10px", color: '#424242', fontSize: '2rem' }}
+      >
+        You have no items in your shopping cart,&nbsp;
+        <Link className={"link"} to="/"
+        style={{ color: '#15a9fc'}}
+        >
+          start adding some
+        </Link>
+        !
+      </Typography>
+      <div className="empty__box">
+        <ReactCircle className="empty__circle" />
+        <img src={shoe1} alt="shoe" className="empty__img" />
+        <img src={shoe2} alt="shoe" className="empty__img" />
+      </div>
+    </>
   );
 
   if (!cart.line_items) return "Loading";
@@ -36,7 +50,7 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
         <Typography variant="h4">
           Subtotal: {cart.subtotal.formatted_with_symbol}
         </Typography>
-        <div>
+        <div style={{display: 'flex', gap: 10}}>
           <Button
             className={"emptyButton"}
             size="large"
@@ -64,18 +78,20 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
   );
 
   return (
+    <div className="container">
     <Container>
       <div className={"toolbar"} />
       <Typography
         className={"title"}
         variant="h3"
         gutterBottom
-        style={{ marginTop: "100px" }}
+        style={{textAlign: 'center', marginTop: "100px", color: '#15a9fc', fontSize: '3rem', fontWeight: '700' }}
       >
         Your Shopping Cart
       </Typography>
       {!cart.line_items.length ? renderEmptyCart() : renderCart()}
     </Container>
+    </div>
   );
 };
 

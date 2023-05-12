@@ -10,6 +10,9 @@ import {
 } from "@mui/material";
 import { ShoppingCart } from "@mui/icons-material";
 import { Link, useLocation } from "react-router-dom";
+import { ReactComponent as ReactCart } from "../../image/cart.svg";
+import logo from "../../image/logo.png";
+import css from './Navbar.module.css'
 
 const Navbar = ({ totalItems }) => {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
@@ -40,9 +43,7 @@ const Navbar = ({ totalItems }) => {
           aria-label="Show cart items"
           color="inherit"
         >
-          <Badge badgeContent={totalItems} color="secondary">
-            <ShoppingCart />
-          </Badge>
+          <Badge badgeContent={totalItems} color="secondary"></Badge>
         </IconButton>
         <p>Cart</p>
       </MenuItem>
@@ -50,43 +51,44 @@ const Navbar = ({ totalItems }) => {
   );
 
   return (
-    <>
+    <div className="container">
       <AppBar position="fixed" className={"appBar"} color="inherit">
-        <Toolbar>
-          <Typography
-            component={Link}
-            to="/"
-            variant="h6"
-            className={"title"}
-            color="inherit"
-          >
-            {/* <img
-              src={logo}
-              alt="Shoe Haven"
-              height="25px"
-              className={"image"}
-            /> */}
-            Shoe Haven
-          </Typography>
-          <div className={"grow"} />
-          {location.pathname === "/" && (
-            <div className={"button"}>
-              <IconButton
-                component={Link}
-                to="/cart"
-                aria-label="Show cart items"
-                color="inherit"
-              >
-                <Badge badgeContent={totalItems} color="secondary">
-                  <ShoppingCart />
-                </Badge>
-              </IconButton>
-            </div>
-          )}
-        </Toolbar>
+        <div className="appBar__container">
+          <Toolbar>
+            <Typography
+              component={Link}
+              to="/"
+              variant="h6"
+              className={css.logo__title}
+              color="inherit"
+            >
+              <img
+                src={logo}
+                alt="Shoe Haven"
+                className={css.logo__image}
+              />
+              Shoe Haven
+            </Typography>
+            <div className={"grow"} />
+            {location.pathname === "/" && (
+              <div className={"button"}>
+                <IconButton
+                  component={Link}
+                  to="/cart"
+                  aria-label="Show cart items"
+                  color="inherit"
+                >
+                  <Badge badgeContent={totalItems} color="secondary">
+                    <ReactCart height={25} width={25} />
+                  </Badge>
+                </IconButton>
+              </div>
+            )}
+          </Toolbar>
+        </div>
       </AppBar>
       {renderMobileMenu}
-    </>
+    </div>
   );
 };
 

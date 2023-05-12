@@ -6,6 +6,7 @@ import Products from "./components/Products/Products";
 import Navbar from "./components/Navbar/Navbar";
 import Cart from "./components/Cart/Cart";
 import Checkout from "./components/Checkout/Checkout";
+import PageNotFound404 from "./components/Error404/Error404";
 
 const App = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -76,37 +77,38 @@ const App = () => {
 
   return (
     <>
-      <Navbar totalItems={cart.total_items} />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Products products={products} handleAddToCart={handleAddToCart} />
-          }
-        />
-        <Route
-          path="/cart"
-          element={
-            <Cart
-              cart={cart}
-              onUpdateCartQty={handleUpdateCartQty}
-              onRemoveFromCart={handleRemoveFromCart}
-              onEmptyCart={handleEmptyCart}
-            />
-          }
-        />
-        <Route
-          path="/checkout"
-          element={
-            <Checkout
-              cart={cart}
-              order={order}
-              onCaptureCheckout={handleCaptureCheckout}
-              error={errorMessage}
-            />
-          }
-        />
-      </Routes>
+        <Navbar totalItems={cart.total_items} />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Products products={products} handleAddToCart={handleAddToCart} />
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              <Cart
+                cart={cart}
+                onUpdateCartQty={handleUpdateCartQty}
+                onRemoveFromCart={handleRemoveFromCart}
+                onEmptyCart={handleEmptyCart}
+              />
+            }
+          />
+          <Route
+            path="/checkout"
+            element={
+              <Checkout
+                cart={cart}
+                order={order}
+                onCaptureCheckout={handleCaptureCheckout}
+                error={errorMessage}
+              />
+            }
+          />
+          <Route path="*" element={<PageNotFound404 />}/>
+        </Routes>
     </>
     // <>
     //   <Navbar totalItems={cart.total_items} />

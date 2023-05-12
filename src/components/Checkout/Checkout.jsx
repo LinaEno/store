@@ -108,12 +108,21 @@ const Checkout = ({ cart, onCaptureCheckout, order, error }) => {
     );
 
   return (
-    <>
+    <div className="container">
       <CssBaseline />
       <div />
-      <main>
+      <main style={{ marginTop: "80px" }}>
         <Paper>
-          <Typography variant="h4" align="center">
+          <Typography
+            variant="h4"
+            style={{
+              textAlign: "center",
+              padding: "12px",
+              color: "#15a9fc",
+              fontSize: "3rem",
+              fontWeight: "700",
+            }}
+          >
             Checkout
           </Typography>
           <Stepper activeStep={activeStep}>
@@ -130,7 +139,7 @@ const Checkout = ({ cart, onCaptureCheckout, order, error }) => {
           )}
         </Paper>
       </main>
-    </>
+    </div>
   );
 };
 
