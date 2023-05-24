@@ -7,7 +7,6 @@ import { useRef, useState } from "react";
 import Slideshow from "./Slide";
 
 const Products = ({ products, handleAddToCart }) => {
-  console.log(products);
   const elementToScroll = useRef(null);
   const [page, setPage] = useState(0);
   const itemsPerPage = 8;
